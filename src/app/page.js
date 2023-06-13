@@ -1,8 +1,8 @@
-import Image from 'next/image';
-// import styles from './page.module.css';
-
 //  Import components
 import { TitleSearch } from '@/components/TitleSearch';
+
+//  Import templates
+import { Products } from '@/template/Products';
 
 export default function Home() {
     return (
@@ -11,6 +11,8 @@ export default function Home() {
                 placerHolder="Busca lo que deseas"
                 title="¿Qué vas a querer comprar hoy?"
             />
+
+            <Products />
         </main>
     );
 }
