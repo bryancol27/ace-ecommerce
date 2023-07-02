@@ -10,12 +10,12 @@ const ItemShoppingCart = () => {
         <ItemContent>
             <div className="item">
                 <Image
-                    src="https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000"
+                    src="https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp"
                     alt="titulo ace"
                     width={39}
                     height={39}
                 />
-                <h3>Banana</h3>
+                <h3>Iphone 14 pro max</h3>
             </div>
             <div className="prices">
                 <p className="numBlack">x1</p>

@@ -1,32 +1,32 @@
 export const MOCK_DATA = [
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
     {
-        name: 'Banana',
+        name: 'Iphone 14 pro max',
         price: 25,
-        imgUrl: 'https://img.freepik.com/vector-gratis/diseno-etiqueta-platano-aislado_1308-77292.jpg?w=2000',
+        imgUrl: 'https://www.movistar.com.co/pages/persons/celulares-gama-alta/celulares/img/iphone/IPHONE-14-PLUS.webp',
     },
 ];
