@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { Nav } from './styles';
 
 // Icons
-import { ShoppingCart } from 'feather-icons-react/build/IconComponents';
+import { ShoppingCart, Menu } from 'feather-icons-react/build/IconComponents';
 
 export const Navbar = () => {
     return (
@@ -22,7 +22,7 @@ export const Navbar = () => {
                 />
             </figure>
 
-            <ul>
+            <ul className="list">
                 <li>
                     <ShoppingCart color={'white'} />
                 </li>
@@ -33,6 +33,10 @@ export const Navbar = () => {
                     <button>Register</button>
                 </li>
             </ul>
+
+            <button className="buttonToggleMenu">
+                <Menu color="white" size={50} />
+            </button>
         </Nav>
     );
 };

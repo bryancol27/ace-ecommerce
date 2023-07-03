@@ -10,6 +10,16 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 450px) {
+        ul.list {
+            display: none;
+        }
+
+        button.buttonToggleMenu {
+            display: block;
+        }
+    }
+
     ul {
         /* width: 100% */
         height: 100%;
@@ -38,5 +48,16 @@ export const Nav = styled.nav`
                 text-align: center;
             }
         }
+    }
+
+    .buttonToggleMenu {
+        display: none;
+
+        background-color: transparent;
+        border: none;
+        width: 50px;
+        height: 50px;
+
+        cursor: pointer;
     }
 `;

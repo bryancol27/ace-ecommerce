@@ -10,4 +10,10 @@ export const ProductsContainerSection = styled.section`
 
     grid-template-columns: repeat(3, 1fr);
     row-gap: 48px;
+
+    @media (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;

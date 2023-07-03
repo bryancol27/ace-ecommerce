@@ -7,6 +7,22 @@ export const TitleSearchS = styled.div`
     align-items: center;
     padding: 68px 30px 0;
 
+    @media (max-width: 450px) {
+        flex-direction: column;
+
+        h2 {
+            margin-bottom: 100px;
+        }
+
+        form {
+            width: 100% !important;
+            input {
+                width: 100% !important;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
     h2 {
         /* heading1 */
 
