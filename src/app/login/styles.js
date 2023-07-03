@@ -17,6 +17,13 @@ export const MainStyled = styled.main`
         color: #000000;
     }
 
+    @media (max-width: 450px) {
+        form.formBox {
+            padding: 0 36px;
+            width: 100%;
+        }
+    }
+
     form {
         display: flex;
         justify-content: center;
@@ -31,7 +38,7 @@ export const MainStyled = styled.main`
 
             label {
                 display: flex;
-                gap: .5rem;
+                gap: 0.5rem;
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 23px;

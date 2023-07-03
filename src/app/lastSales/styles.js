@@ -9,6 +9,10 @@ export const MainStyled = styled.main`
     flex-direction: column;
     gap: 2rem;
 
+    @media (max-width: 450px) {
+        padding: 0 28px;
+    }
+
     h1 {
         font-weight: 500;
         font-size: 35px;

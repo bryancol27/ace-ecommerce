@@ -16,6 +16,15 @@ export const MainStyled = styled.main`
         text-align: center;
         color: #000000;
     }
+
+    @media (max-width: 450px) {
+        padding: 0 40px;
+
+        div.contentItems {
+            width: 100%;
+        }
+    }
+
     .contentItems {
         width: 400px;
         height: 500px;

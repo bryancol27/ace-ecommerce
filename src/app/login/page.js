@@ -11,7 +11,7 @@ export default function Register() {
         <MainStyled>
             <h1>Ingresa</h1>
 
-            <form>
+            <form className="formBox">
                 <div>
                     <label for="">
                         <Mail />
