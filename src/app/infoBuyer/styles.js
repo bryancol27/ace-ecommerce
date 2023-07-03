@@ -17,6 +17,23 @@ export const MainStyled = styled.main`
         color: #000000;
     }
 
+    @media (max-width: 450px) {
+        padding: 20px;
+
+        article.contentInfo {
+            width: 100%;
+
+            div.content__others,
+            div.product {
+                padding: 0 5px;
+
+                .title {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
     .contentInfo {
         width: 739px;
         height: 409px;
@@ -59,7 +76,6 @@ export const MainStyled = styled.main`
             justify-content: space-around;
             padding-bottom: 2rem;
             border-bottom: 1px solid rgba(164, 22, 26, 0.5);
-
 
             .content__item {
                 display: flex;

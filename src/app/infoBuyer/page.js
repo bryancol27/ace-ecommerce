@@ -4,7 +4,7 @@ import Image from 'next/image';
 // import styles from './page.module.css';
 import { MainStyled } from './styles';
 //import icons
-import { Mail, Lock, Anchor } from 'feather-icons-react/build/IconComponents';
+// import { Mail, Lock, Anchor } from 'feather-icons-react/build/IconComponents';
 
 export default function Register() {
     return (
