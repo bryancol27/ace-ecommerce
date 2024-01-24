@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 import { Raleway } from 'next/font/google';
 
@@ -15,13 +16,11 @@ export const metadata = {
 
 // import shared components
 import { Navbar } from '@/components/Navbar';
-
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={raleway.className}>
-                <Navbar />
-                {children}
+                <Navbar>{children}</Navbar>
             </body>
         </html>
     );

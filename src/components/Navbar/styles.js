@@ -30,9 +30,13 @@ export const Nav = styled.nav`
         list-style: none;
 
         li {
-            button {
+            button,
+            a.button_redirect {
                 width: 150px;
                 height: 40px;
+
+                text-decoration: none;
+                padding: 9px 15px;
 
                 border: 1px solid #a4161a;
                 border-radius: 25px;
