@@ -11,8 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.6",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.13",
+    "antd": "^5.13.2",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "feather-icons-react": "^0.6.2",

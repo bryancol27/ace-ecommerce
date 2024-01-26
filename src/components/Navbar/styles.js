@@ -51,6 +51,10 @@ export const Nav = styled.nav`
                 line-height: 23px;
                 text-align: center;
             }
+
+            a.anchor_user_settings {
+                color: white;
+            }
         }
     }
 
@@ -64,4 +68,13 @@ export const Nav = styled.nav`
 
         cursor: pointer;
     }
+`;
+
+export const Loader_container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
 `;

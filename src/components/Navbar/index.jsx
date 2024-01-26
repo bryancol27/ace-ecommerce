@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 // Import styles
-import { Nav } from './styles';
+import { Nav, Loader_container } from './styles';
 
 // Icons
 import {
     ShoppingCart,
     Menu,
-    X,
+    User,
 } from 'feather-icons-react/build/IconComponents';
 import Link from 'next/link';
 
@@ -20,16 +20,88 @@ import {
     HasPermissionsRoute,
     response_function,
 } from '@/utils/HasPermissionsRoute';
-import { usePathname, useRouter } from 'next/navigation';
-import { get_local_storage } from '@/utils/localStorage';
+import { get_local_storage, remove_local_storage } from '@/utils/localStorage';
 
-// MUI
-import LinearProgress from '@mui/material/LinearProgress';
+// Ant
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
+// * Ant design components
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
+
+// Data
+const items = [
+    {
+        key: '1',
+        label: (
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.antgroup.com"
+            >
+                Ver mi organización
+            </a>
+        ),
+    },
+    {
+        key: '2',
+        label: (
+            <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.aliyun.com"
+                onClick={() => remove_local_storage('')}
+            >
+                Ver mis compras
+            </Link>
+        ),
+    },
+    {
+        type: 'divider',
+    },
+    {
+        key: '4',
+        danger: true,
+        label: (
+            <Link
+                rel="noopener noreferrer"
+                href="/"
+                onClick={() => remove_local_storage('user_object')}
+            >
+                Salir de la aplicación
+            </Link>
+        ),
+    },
+];
 
 export const Navbar = ({ children }) => {
     // Hooks instance
     const pathName = usePathname();
     const router = useRouter();
+
+    const [hasSession, setHasSession] = useState(null);
+
+    useEffect(() => {
+        if (typeof localStorage !== 'undefined' && !hasSession) {
+            const user_loca_storage = get_local_storage('user_object');
+
+            const has_permissions = HasPermissionsRoute(
+                pathName,
+                user_loca_storage,
+            );
+
+            console.log(has_permissions);
+            if (
+                has_permissions == response_function.has_the_token_and_type ||
+                (has_permissions == response_function.not_session &&
+                    pathName != '/')
+            ) {
+                setHasSession(true);
+            } else {
+                setHasSession(false);
+            }
+        }
+    }, []);
 
     if (typeof localStorage !== 'undefined') {
         const user_loca_storage = get_local_storage('user_object');
@@ -38,13 +110,20 @@ export const Navbar = ({ children }) => {
             user_loca_storage,
         );
 
-        console.log(has_permissions);
         if (has_permissions == response_function.not_permissions) {
             setTimeout(() => {
                 router.push(`/login?${response_function.not_permissions}`);
-            }, 1500);
+            }, 500);
 
-            return <LinearProgress color="success" />;
+            return (
+                <Loader_container>
+                    <Spin
+                        indicator={
+                            <LoadingOutlined style={{ fontSize: 50 }} spin />
+                        }
+                    />
+                </Loader_container>
+            );
         }
     }
 
@@ -66,16 +145,40 @@ export const Navbar = ({ children }) => {
                             <ShoppingCart color={'white'} />
                         </Link>
                     </li>
-                    <li>
-                        <Link className="button_redirect" href="/login">
-                            Log in
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="button_redirect" href="/register">
-                            Register
-                        </Link>
-                    </li>
+
+                    {hasSession != null && !hasSession ? (
+                        <>
+                            <li>
+                                <Link className="button_redirect" href="/login">
+                                    Log in
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="button_redirect"
+                                    href="/register"
+                                >
+                                    Register
+                                </Link>
+                            </li>
+                        </>
+                    ) : (
+                        <li>
+                            <Dropdown
+                                menu={{
+                                    items,
+                                }}
+                            >
+                                <a
+                                    onClick={(e) => e.preventDefault()}
+                                    className="anchor_user_settings"
+                                >
+                                    <User />
+                                    <DownOutlined size={10} />
+                                </a>
+                            </Dropdown>
+                        </li>
+                    )}
                 </ul>
 
                 <button className="buttonToggleMenu">
