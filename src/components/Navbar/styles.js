@@ -6,6 +6,10 @@ export const Nav = styled.nav`
     background-color: #161a1d;
     padding: 0 15px;
 
+    position: fixed;
+    left: 0px;
+    top: 0px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;

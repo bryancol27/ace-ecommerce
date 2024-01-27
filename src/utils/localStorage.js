@@ -3,7 +3,7 @@ const save_local_storage = (key, object) => {
 };
 
 const get_local_storage = (key) => {
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key)) || false;
 };
 
 const remove_local_storage = (key) => {

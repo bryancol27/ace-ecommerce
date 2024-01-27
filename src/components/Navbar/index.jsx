@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
 // Import styles
@@ -34,11 +34,7 @@ const items = [
     {
         key: '1',
         label: (
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.antgroup.com"
-            >
+            <a rel="noopener noreferrer" href="/business-management">
                 Ver mi organización
             </a>
         ),
@@ -66,7 +62,10 @@ const items = [
             <Link
                 rel="noopener noreferrer"
                 href="/"
-                onClick={() => remove_local_storage('user_object')}
+                onClick={() => {
+                    remove_local_storage('user_object');
+                    location.reload();
+                }}
             >
                 Salir de la aplicación
             </Link>
@@ -77,31 +76,24 @@ const items = [
 export const Navbar = ({ children }) => {
     // Hooks instance
     const pathName = usePathname();
+    const searchParams = useSearchParams();
     const router = useRouter();
 
     const [hasSession, setHasSession] = useState(null);
 
     useEffect(() => {
-        if (typeof localStorage !== 'undefined' && !hasSession) {
+        console.log('ENTRE AQUI');
+
+        if (typeof localStorage !== 'undefined') {
             const user_loca_storage = get_local_storage('user_object');
 
-            const has_permissions = HasPermissionsRoute(
-                pathName,
-                user_loca_storage,
-            );
-
-            console.log(has_permissions);
-            if (
-                has_permissions == response_function.has_the_token_and_type ||
-                (has_permissions == response_function.not_session &&
-                    pathName != '/')
-            ) {
+            if (user_loca_storage) {
                 setHasSession(true);
             } else {
                 setHasSession(false);
             }
         }
-    }, []);
+    }, [pathName, searchParams]);
 
     if (typeof localStorage !== 'undefined') {
         const user_loca_storage = get_local_storage('user_object');
@@ -145,8 +137,7 @@ export const Navbar = ({ children }) => {
                             <ShoppingCart color={'white'} />
                         </Link>
                     </li>
-
-                    {hasSession != null && !hasSession ? (
+                    {hasSession != null && !hasSession && (
                         <>
                             <li>
                                 <Link className="button_redirect" href="/login">
@@ -162,7 +153,8 @@ export const Navbar = ({ children }) => {
                                 </Link>
                             </li>
                         </>
-                    ) : (
+                    )}
+                    {hasSession && (
                         <li>
                             <Dropdown
                                 menu={{

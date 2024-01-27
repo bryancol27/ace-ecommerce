@@ -46,7 +46,7 @@ export default function LogIn() {
             save_local_storage('user_object', response);
 
             setTimeout(() => {
-                if (!response.type == 'user') {
+                if (response.type == 'user') {
                     router.push('/');
                 } else {
                     router.push('business-management');
