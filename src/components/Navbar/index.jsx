@@ -82,8 +82,6 @@ export const Navbar = ({ children }) => {
     const [hasSession, setHasSession] = useState(null);
 
     useEffect(() => {
-        console.log('ENTRE AQUI');
-
         if (typeof localStorage !== 'undefined') {
             const user_loca_storage = get_local_storage('user_object');
 
@@ -102,6 +100,7 @@ export const Navbar = ({ children }) => {
             user_loca_storage,
         );
 
+        console.log(has_permissions);
         if (has_permissions == response_function.not_permissions) {
             setTimeout(() => {
                 router.push(`/login?${response_function.not_permissions}`);

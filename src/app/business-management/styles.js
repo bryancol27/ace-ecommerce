@@ -45,3 +45,25 @@ export const MainBussinesMangement = styled.main`
         color: #1f2225;
     }
 `;
+
+export const MainBussinessProducts = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    .title_organization {
+        font-size: 24px;
+
+        margin-bottom: 35px;
+        color: #1f2225;
+    }
+
+    .cotainer_buttons {
+        display: flex;
+        gap: 25px;
+    }
+`;

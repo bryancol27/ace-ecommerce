@@ -8,7 +8,7 @@ const response_function = {
 // Fill the routes what have permissions in the user
 const WITHOUT_SESSIONS = ['/', '/login', '/register'];
 const NEEDS_BE_USER = ['/shoppingCart', '/business-management'];
-const NEEDS_BE_BUSINESS = [];
+const NEEDS_BE_BUSINESS = ['/business-management/products-inventory'];
 
 // Import utils
 
@@ -19,8 +19,8 @@ const HasPermissionsRoute = (path, user_object) => {
 
     if (
         user_object &&
-        (user_object?.type == 'user' || user_object?.type == 'bussines') &&
-        NEEDS_BE_USER.some((path_array) => path.includes(path_array))
+        user_object?.type == 'user' &&
+        NEEDS_BE_USER.some((path_array) => path == path_array)
     ) {
         return response_function.has_the_token_and_type;
     }
@@ -28,7 +28,9 @@ const HasPermissionsRoute = (path, user_object) => {
     if (
         user_object &&
         user_object?.type == 'bussines' &&
-        NEEDS_BE_BUSINESS.some((path_array) => path.includes(path_array))
+        [...NEEDS_BE_BUSINESS, ...NEEDS_BE_USER].some(
+            (path_array) => path == path_array,
+        )
     ) {
         return response_function.has_the_token_and_type;
     }

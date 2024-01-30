@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 // Import services
 import { user_has_organization } from '@/services/organizations/user_has_organization';
@@ -9,15 +10,23 @@ import { create_organization } from '@/services/organizations/create_organizatio
 import { get_local_storage } from '@/utils/localStorage';
 
 // Import styles
-import { MainBussinesMangement } from './styles';
+import { MainBussinesMangement, MainBussinessProducts } from './styles';
 
 // Import ant design components
 import { Button } from 'antd';
+import {
+    ShoppingCartOutlined,
+    ShoppingOutlined,
+    InsertRowLeftOutlined,
+} from '@ant-design/icons';
 
 // Import components
 import { ModalCreateOrganization } from './components/ModalCreateOrganization';
+import { loadComponents } from 'next/dist/server/load-components';
 
 export default function BusinessManagement() {
+    const router = useRouter();
+
     // * States
     // Modal states
     const [showModalCreateOrganization, setShowModalCreateOrganization] =
@@ -35,7 +44,6 @@ export default function BusinessManagement() {
 
             if (user_loca_storage) {
                 user_has_organization(user_loca_storage._id).then((value) => {
-                    console.log(value);
                     setUserHaveOrganization(value);
                 });
 
@@ -62,10 +70,10 @@ export default function BusinessManagement() {
         create_organization(object_create_organization)
             .then((response) => {
                 setTimeout(() => {
-                    console.log(response);
-
                     setShowModalCreateOrganization(false);
                     setConfirmLoading(false);
+
+                    location.reload();
                 }, 1000);
             })
             .catch((err) => {
@@ -73,11 +81,65 @@ export default function BusinessManagement() {
             });
     };
 
+    const HandleChangeRoute = (route) => {
+        router.push(route);
+    };
+
     // TODO: ADD VIEW FOR BUSINESS CREATED AND SPINNER WHEN NOT EXISTS THE DATA YET
     return (
         <>
-            {userHaveOrganization.have_organization ? (
-                <></>
+            {typeof userHaveOrganization.have_organization == 'boolean' &&
+            userHaveOrganization.have_organization ? (
+                <MainBussinessProducts>
+                    <h2 className="title_organization">
+                        ¡Bienvenido de nuevo a tu organización!
+                    </h2>
+
+                    <article className="cotainer_buttons">
+                        <Button
+                            type="primary"
+                            icon={<ShoppingOutlined />}
+                            size="large"
+                            style={{
+                                width: '250px',
+                                backgroundColor: '#BA181B',
+                            }}
+                            onClick={() =>
+                                HandleChangeRoute(
+                                    '/business-management/products-inventory',
+                                )
+                            }
+                        >
+                            Ver mis productos
+                        </Button>
+
+                        <Button
+                            type="primary"
+                            icon={<ShoppingCartOutlined />}
+                            size="large"
+                            style={{
+                                width: '250px',
+                                backgroundColor: '#BA181B',
+                            }}
+                            onClick={() => HandleChangeRoute('/')}
+                        >
+                            Ver ordenes de compras
+                        </Button>
+
+                        <Button
+                            type="primary"
+                            icon={<InsertRowLeftOutlined />}
+                            size="large"
+                            style={{
+                                width: '250px',
+                                backgroundColor: '#BA181B',
+                            }}
+                            onClick={() => HandleChangeRoute('/')}
+                        >
+                            Ver inventario
+                        </Button>
+                    </article>
+                </MainBussinessProducts>
             ) : (
                 <MainBussinesMangement>
                     <figure className="ace_logo">
