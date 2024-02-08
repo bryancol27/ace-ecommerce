@@ -121,60 +121,65 @@ export const Navbar = ({ children }) => {
     return (
         <>
             <Nav>
-                <figure>
-                    <Image
-                        src="/logos/Title.svg"
-                        alt="titulo ace"
-                        width={240}
-                        height={35}
-                    />
-                </figure>
+                <div className="container_nav">
+                    <figure>
+                        <Image
+                            src="/logos/Title.svg"
+                            alt="titulo ace"
+                            width={240}
+                            height={35}
+                        />
+                    </figure>
 
-                <ul className="list">
-                    <li>
-                        <Link className="no_border" href="/shoppingCart">
-                            <ShoppingCart color={'white'} />
-                        </Link>
-                    </li>
-                    {hasSession != null && !hasSession && (
-                        <>
-                            <li>
-                                <Link className="button_redirect" href="/login">
-                                    Log in
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="button_redirect"
-                                    href="/register"
-                                >
-                                    Register
-                                </Link>
-                            </li>
-                        </>
-                    )}
-                    {hasSession && (
+                    <ul className="list">
                         <li>
-                            <Dropdown
-                                menu={{
-                                    items,
-                                }}
-                            >
-                                <a
-                                    onClick={(e) => e.preventDefault()}
-                                    className="anchor_user_settings"
-                                >
-                                    <User />
-                                    <DownOutlined size={10} />
-                                </a>
-                            </Dropdown>
+                            <Link className="no_border" href="/shoppingCart">
+                                <ShoppingCart color={'white'} />
+                            </Link>
                         </li>
-                    )}
-                </ul>
+                        {hasSession != null && !hasSession && (
+                            <>
+                                <li>
+                                    <Link
+                                        className="button_redirect"
+                                        href="/login"
+                                    >
+                                        Log in
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="button_redirect"
+                                        href="/register"
+                                    >
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                        )}
+                        {hasSession && (
+                            <li>
+                                <Dropdown
+                                    menu={{
+                                        items,
+                                    }}
+                                >
+                                    <a
+                                        onClick={(e) => e.preventDefault()}
+                                        className="anchor_user_settings"
+                                    >
+                                        <User />
+                                        <DownOutlined size={10} />
+                                    </a>
+                                </Dropdown>
+                            </li>
+                        )}
+                    </ul>
 
-                <button className="buttonToggleMenu">
-                    <Menu color="white" size={50} />
-                </button>
+                    <button className="buttonToggleMenu">
+                        <Menu color="white" size={50} />
+                    </button>
+                </div>
             </Nav>
 
             {children}

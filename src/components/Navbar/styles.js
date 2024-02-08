@@ -3,16 +3,25 @@ import styled from '@emotion/styled';
 export const Nav = styled.nav`
     width: 100%;
     height: 62px;
-    background-color: #161a1d;
-    padding: 0 15px;
+    background-color: #4e73df;
 
     position: fixed;
     left: 0px;
     top: 0px;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    div.container_nav {
+        width: 100%;
+        height: 100%;
+
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
     @media (max-width: 450px) {
         ul.list {
@@ -42,7 +51,7 @@ export const Nav = styled.nav`
                 text-decoration: none;
                 padding: 9px 15px;
 
-                border: 1px solid #a4161a;
+                border: 1px solid #121e40;
                 border-radius: 25px;
 
                 background-color: transparent;

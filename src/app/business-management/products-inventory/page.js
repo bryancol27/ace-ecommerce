@@ -77,8 +77,10 @@ export default function ProductsInventory() {
         const res = await delete_products(product_id);
 
         if (res.acknowledged) {
-            message.success('Producto eliminado', 3);
-            setUpdate(!update);
+            setTimeout(() => {
+                get_again_products();
+                message.success('Producto eliminado', 3);
+            }, 1500);
         } else {
             message.error('Error en la eliminación del producto', 3);
         }
@@ -141,19 +143,39 @@ export default function ProductsInventory() {
     };
 
     const fill_form = async ({ price, name, inventory, _id }) => {
-        fetch(`${url_api}/products/get-product-image/${_id}`)
-            .then((result) => {
-                try {
-                    setImageUrl(`${url_api}/products/get-product-image/${_id}`);
-                } catch (error) {}
-            })
-            .catch((err) => setImageUrl(false));
+        setImageUrl(`${url_api}/products/get-product-image/${_id}`);
 
         setProductTargetId(_id);
 
         setName(name);
         setProductsType(price);
         setInventory(inventory);
+    };
+
+    const get_again_products = async () => {
+        if (organization._id) {
+            get_related_products(organization._id).then(({ products }) => {
+                if (products.length) {
+                    setProducts(
+                        products.map((product) => ({
+                            key: product._id,
+                            name: product.name,
+                            price: product.price,
+                            inventory: product.inventory,
+                            product_edit: () => {
+                                fill_form(product);
+                                setOpen(true);
+                            },
+                            product_delete: async () => {
+                                await handleDelete(product._id);
+                            },
+                        })),
+                    );
+                } else {
+                    setProducts([]);
+                }
+            });
+        }
     };
 
     // Search first time app

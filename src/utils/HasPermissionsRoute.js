@@ -8,7 +8,10 @@ const response_function = {
 // Fill the routes what have permissions in the user
 const WITHOUT_SESSIONS = ['/', '/login', '/register'];
 const NEEDS_BE_USER = ['/shoppingCart', '/business-management'];
-const NEEDS_BE_BUSINESS = ['/business-management/products-inventory'];
+const NEEDS_BE_BUSINESS = [
+    '/business-management/products-inventory',
+    '/business-management/products-inventory',
+];
 
 // Import utils
 
@@ -27,7 +30,7 @@ const HasPermissionsRoute = (path, user_object) => {
 
     if (
         user_object &&
-        user_object?.type == 'bussines' &&
+        user_object?.type == 'business' &&
         [...NEEDS_BE_BUSINESS, ...NEEDS_BE_USER].some(
             (path_array) => path == path_array,
         )

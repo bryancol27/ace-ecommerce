@@ -7,7 +7,7 @@ import { user_has_organization } from '@/services/organizations/user_has_organiz
 import { create_organization } from '@/services/organizations/create_organization';
 
 // Import utils
-import { get_local_storage } from '@/utils/localStorage';
+import { get_local_storage, remove_local_storage } from '@/utils/localStorage';
 
 // Import styles
 import { MainBussinesMangement, MainBussinessProducts } from './styles';
@@ -22,7 +22,6 @@ import {
 
 // Import components
 import { ModalCreateOrganization } from './components/ModalCreateOrganization';
-import { loadComponents } from 'next/dist/server/load-components';
 
 export default function BusinessManagement() {
     const router = useRouter();
@@ -73,7 +72,10 @@ export default function BusinessManagement() {
                     setShowModalCreateOrganization(false);
                     setConfirmLoading(false);
 
-                    location.reload();
+                    if (typeof localStorage !== 'undefined') {
+                        remove_local_storage('user_object');
+                    }
+                    HandleChangeRoute('/login?needs_relogin_organization');
                 }, 1000);
             })
             .catch((err) => {
@@ -124,19 +126,6 @@ export default function BusinessManagement() {
                             onClick={() => HandleChangeRoute('/')}
                         >
                             Ver ordenes de compras
-                        </Button>
-
-                        <Button
-                            type="primary"
-                            icon={<InsertRowLeftOutlined />}
-                            size="large"
-                            style={{
-                                width: '250px',
-                                backgroundColor: '#BA181B',
-                            }}
-                            onClick={() => HandleChangeRoute('/')}
-                        >
-                            Ver inventario
                         </Button>
                     </article>
                 </MainBussinessProducts>

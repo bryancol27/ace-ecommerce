@@ -1,8 +1,6 @@
 const url_api = process.env.NEXT_PUBLIC_ANALYTICS_ID;
 
 export const delete_products = async (product_id) => {
-    console.log(`${url_api}/products/delete-product/${product_id}`);
-
     try {
         const request = await fetch(
             `${url_api}/products/delete-product/${product_id}`,
