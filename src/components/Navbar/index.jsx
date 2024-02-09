@@ -42,12 +42,7 @@ const items = [
     {
         key: '2',
         label: (
-            <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.aliyun.com"
-                onClick={() => remove_local_storage('')}
-            >
+            <Link rel="noopener noreferrer" href="/last-buys">
                 Ver mis compras
             </Link>
         ),
@@ -122,14 +117,16 @@ export const Navbar = ({ children }) => {
         <>
             <Nav>
                 <div className="container_nav">
-                    <figure>
-                        <Image
-                            src="/logos/Title.svg"
-                            alt="titulo ace"
-                            width={240}
-                            height={35}
-                        />
-                    </figure>
+                    <Link href={'/'}>
+                        <figure>
+                            <Image
+                                src="/logos/Title.svg"
+                                alt="titulo ace"
+                                width={240}
+                                height={35}
+                            />
+                        </figure>
+                    </Link>
 
                     <ul className="list">
                         <li>

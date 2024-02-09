@@ -5,7 +5,7 @@ export const TitleSearchS = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 68px 30px 0;
+    padding: 120px 30px 0;
 
     @media (max-width: 450px) {
         flex-direction: column;

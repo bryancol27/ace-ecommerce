@@ -1,7 +1,10 @@
 'use client';
 
+import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+
 import { toast, ToastContainer } from 'react-toastify';
 import { MainStyled } from './styles';
 
@@ -11,10 +14,13 @@ import { useRef } from 'react';
 import { login_request } from '@/services/user/login.service';
 import { save_local_storage } from '@/utils/localStorage';
 
+import { message } from 'antd';
+
 export default function LogIn() {
     // Hookks
     const referenceForm = useRef(null);
     const router = useRouter();
+    const searchParams = useSearchParams();
 
     // Handler login
     const handlerLogIn = async () => {
@@ -54,6 +60,17 @@ export default function LogIn() {
             }, 2200);
         }
     };
+
+    useEffect(() => {
+        const needs_relogin_organization = searchParams.get(
+            'needs_relogin_organization',
+        );
+
+        if (needs_relogin_organization) {
+            message.info('Por favor vuelve a iniciar sesión', 2);
+        }
+        console.log(needs_relogin_organization);
+    }, []);
 
     return (
         <MainStyled>

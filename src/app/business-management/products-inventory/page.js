@@ -93,7 +93,7 @@ export default function ProductsInventory() {
             id_business: organization._id,
             name: formDataGetter.get('name'),
             price: formDataGetter.get('products_type'),
-            inventory: formDataGetter.get('inventory'),
+            inventory: Number(formDataGetter.get('inventory')),
         };
 
         let id_inserted = null;

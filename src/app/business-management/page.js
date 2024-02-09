@@ -75,7 +75,7 @@ export default function BusinessManagement() {
                     if (typeof localStorage !== 'undefined') {
                         remove_local_storage('user_object');
                     }
-                    HandleChangeRoute('/login?needs_relogin_organization');
+                    HandleChangeRoute('/login?needs_relogin_organization=true');
                 }, 1000);
             })
             .catch((err) => {
@@ -103,8 +103,8 @@ export default function BusinessManagement() {
                             icon={<ShoppingOutlined />}
                             size="large"
                             style={{
-                                width: '250px',
-                                backgroundColor: '#BA181B',
+                                width: '300px',
+                                backgroundColor: '#4e73df',
                             }}
                             onClick={() =>
                                 HandleChangeRoute(
@@ -120,12 +120,58 @@ export default function BusinessManagement() {
                             icon={<ShoppingCartOutlined />}
                             size="large"
                             style={{
-                                width: '250px',
-                                backgroundColor: '#BA181B',
+                                width: '300px',
+                                backgroundColor: '#4e73df',
                             }}
-                            onClick={() => HandleChangeRoute('/')}
+                            onClick={() => HandleChangeRoute('/lastSales')}
                         >
                             Ver ordenes de compras
+                        </Button>
+
+                        <Button
+                            type="primary"
+                            icon={<ShoppingCartOutlined />}
+                            size="large"
+                            style={{
+                                width: '300px',
+                                backgroundColor: '#4e73df',
+                                opacity: '0.4',
+                            }}
+                            onClick={() =>
+                                HandleChangeRoute('/business-management')
+                            }
+                        >
+                            Editar tu información (pronto)
+                        </Button>
+                        <Button
+                            type="primary"
+                            icon={<ShoppingCartOutlined />}
+                            size="large"
+                            style={{
+                                width: '300px',
+                                backgroundColor: '#4e73df',
+                                opacity: '0.4',
+                            }}
+                            onClick={() =>
+                                HandleChangeRoute('/business-management')
+                            }
+                        >
+                            Invitar colaboradores (pronto)
+                        </Button>
+                        <Button
+                            type="primary"
+                            icon={<ShoppingCartOutlined />}
+                            size="large"
+                            style={{
+                                width: '300px',
+                                backgroundColor: '#4e73df',
+                                opacity: '0.4',
+                            }}
+                            onClick={() =>
+                                HandleChangeRoute('/business-management')
+                            }
+                        >
+                            Asignar estado a ventas (pronto)
                         </Button>
                     </article>
                 </MainBussinessProducts>

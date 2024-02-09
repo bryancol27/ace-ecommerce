@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 export const ItemContent = styled.div`
     width: 100%;
     height: 69px;
+
+    margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 25px;
@@ -33,8 +35,9 @@ export const ItemContent = styled.div`
     }
 
     .prices {
+        width: 300px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 10px;
 
@@ -53,4 +56,20 @@ export const ItemContent = styled.div`
             color: #a4161a;
         }
     }
+`;
+
+export const QuantityButton = styled.button`
+    width: 25px !important;
+    height: 25px !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #4e73df !important;
+    color: white !important;
+    border: 0px solid !important;
+
+    cursor: pointer;
+    border-radius: 50%;
 `;

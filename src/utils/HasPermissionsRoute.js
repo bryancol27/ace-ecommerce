@@ -7,10 +7,11 @@ const response_function = {
 
 // Fill the routes what have permissions in the user
 const WITHOUT_SESSIONS = ['/', '/login', '/register'];
-const NEEDS_BE_USER = ['/shoppingCart', '/business-management'];
+const NEEDS_BE_USER = ['/shoppingCart', '/business-management', '/last-buys'];
 const NEEDS_BE_BUSINESS = [
     '/business-management/products-inventory',
     '/business-management/products-inventory',
+    '/lastSales',
 ];
 
 // Import utils

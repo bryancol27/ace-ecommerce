@@ -2,19 +2,21 @@ import styled from '@emotion/styled';
 
 export const MainStyled = styled.main`
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2rem;
 
+    color: #121e40;
+
     h1 {
         font-weight: 500;
         font-size: 35px;
         line-height: 51px;
         text-align: center;
-        color: #000000;
+        color: #121e40;
     }
 
     @media (max-width: 450px) {
@@ -44,7 +46,7 @@ export const MainStyled = styled.main`
                 line-height: 23px;
                 letter-spacing: 0.11em;
                 margin-bottom: 20px;
-                color: #000000;
+                color: #121e40;
             }
 
             input {
@@ -63,7 +65,7 @@ export const MainStyled = styled.main`
     button {
         width: 244px;
         height: 50px;
-        border: 2px solid #a4161a;
+        border: 2px solid #4e73df;
         border-radius: 20px;
         background: transparent;
         font-weight: 500;
@@ -71,7 +73,7 @@ export const MainStyled = styled.main`
         line-height: 23px;
         text-align: center;
         letter-spacing: 0.11em;
-        color: #a4161a;
+        color: #4e73df;
         cursor: pointer;
     }
 `;
