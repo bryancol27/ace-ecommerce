@@ -7,6 +7,7 @@ export const get_orders_by_user_id = async (user_id) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                     // Add any additional headers if needed
                 },
                 method: 'GET',

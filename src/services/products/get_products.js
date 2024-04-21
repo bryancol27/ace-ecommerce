@@ -7,6 +7,7 @@ export const get_related_products = async (organization_id) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                     // Add any additional headers if needed
                 },
                 method: 'GET',

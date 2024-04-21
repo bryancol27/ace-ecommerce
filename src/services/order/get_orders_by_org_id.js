@@ -7,6 +7,7 @@ export const get_orders_by_org_id = async (org_id) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                     // Add any additional headers if needed
                 },
                 method: 'GET',

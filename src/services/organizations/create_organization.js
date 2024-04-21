@@ -5,6 +5,7 @@ export const create_organization = async (body_to_send) => {
         const request = await fetch(`${url_api}/business/create-business`, {
             headers: {
                 'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true',
                 // Add any additional headers if needed
             },
             method: 'POST',

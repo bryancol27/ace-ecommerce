@@ -5,6 +5,7 @@ export const register_request = async (body_request) => {
         const request = await fetch(`${url_api}/users/register-entity`, {
             headers: {
                 'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true',
                 // Add any additional headers if needed
             },
             method: 'POST',

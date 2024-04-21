@@ -7,6 +7,7 @@ export const user_has_organization = async (user_id) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                     // Add any additional headers if needed
                 },
                 method: 'GET',

@@ -61,7 +61,7 @@ export default function Register() {
         );
 
         if (usd) {
-            return total_value_cop / 4000;
+            return (total_value_cop / 4000).toFixed(2);
         }
 
         return total_value_cop;

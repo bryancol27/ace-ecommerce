@@ -7,6 +7,7 @@ export const post_products = async (object, product_id = 0) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                 },
                 method: 'POST',
                 body: JSON.stringify(object),

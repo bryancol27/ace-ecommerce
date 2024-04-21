@@ -5,6 +5,7 @@ export const create_buy_order = async (body_to_send) => {
         const request = await fetch(`${url_api}/buy-order/create-order`, {
             headers: {
                 'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true',
                 // Add any additional headers if needed
             },
             method: 'POST',

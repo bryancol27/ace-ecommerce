@@ -31,9 +31,11 @@ export const Products = ({ keyword }) => {
     };
 
     useEffect(() => {
-        get_products_home(keyword).then((data) => {
-            setProducts(data.products);
-        });
+        get_products_home(keyword)
+            .then((data) => {
+                setProducts(data.products);
+            })
+            .catch((err) => console.log(err));
     }, [keyword]);
 
     useEffect(() => {

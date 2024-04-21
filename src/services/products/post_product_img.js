@@ -7,6 +7,10 @@ export const post_image_products = async (formData, product_id = 0) => {
             {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    // Add any additional headers if needed
+                },
             },
         );
 

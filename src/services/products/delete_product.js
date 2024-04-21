@@ -7,6 +7,7 @@ export const delete_products = async (product_id) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true',
                     // Add any additional headers if needed
                 },
                 method: 'DELETE',
